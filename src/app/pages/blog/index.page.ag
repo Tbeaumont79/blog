@@ -13,11 +13,15 @@
 
   @for (post of posts; track post.attributes.slug) {
   <a class="p-4 flex flex-col gap-2" [routerLink]="['/blog/', post.attributes.slug]">
-    <h2 class="text-white">{{ post.attributes.title }}</h2>
+    <h2 class="text-white text-lg">{{ post.attributes.title }}</h2>
     <span class="flex gap-2 text-sm text-lighttext">
-      <img height="15px" width="15px" src="/assets/icons/clock.svg" alt="clock icons"/>
+      <img height="18px" width="18px" src="/assets/icons/clock.svg" alt="clock icons"/>
       {{ post.attributes.date}}</span>
-    <p class="text-lighttext text-sm leading-6">{{ post.attributes.description }}</p>
+    <p class="text-white font-poppins text-sm leading-6">{{ post.attributes.description }}</p>
+    <span class="flex justify-between">
+      <p class="text-lighttext text-sm">Reading time : {{ post.attributes.readingTime }}</p>
+      <p class="flex gap-2 text-lighttext text-sm hover:text-softPink">Read more <img height="18px" width="18px" src="/assets/icons/right-arrow.svg" alt="right arrow icon" /></p>
+    </span>
   </a>
   }
   </main>

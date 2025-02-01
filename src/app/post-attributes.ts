@@ -4,4 +4,5 @@ export default interface PostAttributes {
   date: string;
   description: string;
   coverImage: string;
+  readingTime: string;
 }

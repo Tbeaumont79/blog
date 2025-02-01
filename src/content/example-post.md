@@ -4,6 +4,7 @@ slug: 01-02-2025-mynewcarrer
 date: Feb 1, 2025
 description: I've always been passioned about web development and now I'm starting a career in it, this is my first blog post and i will tell you everything i went through to get here and what i'm looking forward to.
 coverImage: https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80
+readingTime: '5 minutes'
 ---
 
 # Example Blog Post
