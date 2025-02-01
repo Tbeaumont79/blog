@@ -8,25 +8,18 @@
 </script>
 
 <template>
-  <h1>Blog Archive</h1>
+  <main class="w-full flex flex-col items-center gap-4">
+  <h1 class="text-white text-2xl text-poppins">Stories</h1>
 
   @for (post of posts; track post.attributes.slug) {
-  <a [routerLink]="['/blog/', post.attributes.slug]">
-    <h2 class="post__title">{{ post.attributes.title }}</h2>
-    <p class="post__desc">{{ post.attributes.description }}</p>
+  <a class="p-4 flex flex-col gap-2" [routerLink]="['/blog/', post.attributes.slug]">
+    <h2 class="text-white">{{ post.attributes.title }}</h2>
+    <span class="flex gap-2 text-sm text-lighttext">
+      <img height="15px" width="15px" src="/assets/icons/clock.svg" alt="clock icons"/>
+      {{ post.attributes.date}}</span>
+    <p class="text-lighttext text-sm leading-6">{{ post.attributes.description }}</p>
   </a>
   }
+  </main>
+
 </template>
-
-<style>
-  a {
-    text-align: left;
-    display: block;
-    margin-bottom: 2rem;
-  }
-
-  .post__title,
-  .post__desc {
-    margin: 0;
-  }
-</style>

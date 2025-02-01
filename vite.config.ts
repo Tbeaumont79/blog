@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => ({
         highlighter: 'shiki',
       },
       prerender: {
-        routes: ['/blog', '/blog/2022-12-27-my-first-post'],
+        routes: ['/blog', '/blog/01-02-2025-mynewcarrer'],
       },
       vite: { experimental: { supportAnalogFormat: true } },
     }),
