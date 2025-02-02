@@ -1,29 +1,29 @@
 <script lang="ts">
-  import { RouterLink } from '@angular/router' with { analog: 'imports' };
-  import { injectContentFiles } from '@analogjs/content';
+import { RouterLink } from '@angular/router' with { analog: 'imports' };
+import { injectContentFiles } from '@analogjs/content';
 
-  import PostAttributes from '../../post-attributes';
+import PostAttributes from '../../post-attributes';
 
-  const posts = injectContentFiles<PostAttributes>();
+const posts = injectContentFiles<PostAttributes>();
 </script>
 
 <template>
-  <section class="p-4 lg:max-w-[800px]">
+<section class="p-4 lg:max-w-[800px]">
   <h1 tabindex="0" class="text-white text-2xl font-poppins lg:text-3xl">Stories</h1>
 
   @for (post of posts; track post.attributes.slug) {
   <a class="p-4 flex w-full flex-col gap-4" [routerLink]="['/blog/', post.attributes.slug]">
     <h2 class="text-white font-poppins text-lg lg:text-xl ">{{ post.attributes.title }}</h2>
     <span class="flex gap-2 text-sm text-lighttext">
-      <img height="18px" width="18px" src="/assets/icons/clock.svg" alt="clock icons"/>
+      <img height="18px" width="18px" src="/assets/icons/clock.svg" alt="clock icons" />
       {{ post.attributes.date}}</span>
     <p class="text-white font-roboto text-sm leading-6 lg:text-base">{{ post.attributes.description }}</p>
     <span class="flex justify-between">
-      <p   class="text-lighttext font-roboto text-sm">Reading time : {{ post.attributes.readingTime }}</p>
-      <p class="flex gap-2 font-roboto text-lighttext text-sm hover:text-softPink">Read more <img height="18px" width="18px" src="/assets/icons/right-arrow.svg" alt="right arrow icon" /></p>
-    </span>
-  </a>
-  }
+      <p class="text-lighttext font-roboto text-sm">Reading time : {{ post.attributes.readingTime }}</p>
+      <p class="flex gap-2 font-roboto text-lighttext text-sm hover:text-softPink">Read more <img height="18px"
+          width="18px" src="/assets/icons/right-arrow.svg" alt="right arrow icon" /></p>  </span>
+    </a>
+    }
   </section>
 
 </template>

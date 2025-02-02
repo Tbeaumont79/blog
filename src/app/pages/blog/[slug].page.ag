@@ -1,20 +1,20 @@
 <script lang="ts">
-  import { AsyncPipe } from '@angular/common' with { analog: 'imports' };
-  import { MarkdownComponent } from '@analogjs/content' with { analog: 'imports' };
-  import { injectContent } from '@analogjs/content';
+import { AsyncPipe } from '@angular/common' with { analog: 'imports' };
+import { MarkdownComponent } from '@analogjs/content' with { analog: 'imports' };
+import { injectContent } from '@analogjs/content';
 
-  import PostAttributes from '../../post-attributes';
+import PostAttributes from '../../post-attributes';
 
-  const post$ = injectContent<PostAttributes>('slug');
+const post$ = injectContent<PostAttributes>('slug');
 </script>
 
 <template>
-  <section class="p-4 w-4/6 m-auto md:w-1/2 lg:w-1/2">
-    @if (post$ | async; as post) {
-    <article>
-      <img with="100px" height="100px" alt="post image" [src]="post.attributes.coverImage" />
-      <analog-markdown [content]="post.content" />
-    </article>
-    }
-  </section>
+<section class="p-4 m-auto w-full">
+  @if (post$ | async; as post) {
+  <article>
+    <img with="100px" height="100px" alt="post image" [src]="post.attributes.coverImage" />
+    <analog-markdown [content]="post.content" />
+  </article>
+  }
+</section>
 </template>
