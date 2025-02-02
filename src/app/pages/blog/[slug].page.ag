@@ -9,9 +9,9 @@
 </script>
 
 <template>
-  <section class="w-full">
+  <section class="p-4">
     @if (post$ | async; as post) {
-    <article class="p-4 lg:w-1/2 lg:m-auto">
+    <article class="lg:w-1/2 lg:m-auto">
       <img with="100px" height="100px" alt="post image" [src]="post.attributes.coverImage" />
       <analog-markdown [content]="post.content" />
     </article>
