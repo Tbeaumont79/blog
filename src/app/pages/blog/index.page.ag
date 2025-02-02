@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <section class="lg:max-w-[800px]">
+  <section class="p-4 lg:max-w-[800px]">
   <h1 tabindex="0" class="text-white text-2xl font-poppins lg:text-3xl">Stories</h1>
 
   @for (post of posts; track post.attributes.slug) {

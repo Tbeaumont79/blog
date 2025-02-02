@@ -43,7 +43,10 @@
 
 
         </div>
-        <router-outlet />
+        <div class="w-screen md:w-1/2 lg:w-1/2">
+          <router-outlet />
+
+        </div>
           <footer>
           <p tabindex="0" class="flex gap-2 text-lighttext font-roboto text-sm md:text-base lg:text-base">
             Made with
