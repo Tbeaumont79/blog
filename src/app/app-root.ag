@@ -1,35 +1,57 @@
 <script lang="ts">
   import { RouterLink, RouterOutlet } from '@angular/router' with { analog: 'imports' };
-  let isOpen = false
-  let lang = "En"
-  function toggleButton() {
+  let isOpen = false;
+  let lang = "En";
+  function toggleMenu(): void {
     isOpen = !isOpen;
   }
 </script>
 
 <template>
-  <main class="w-full p-4 h-full flex flex-col items-center justify-between gap-4">
-  <div class="w-full flex justify-between items-center lg:p-8">
-    <p tabindex="0" class="text-white font-roboto">{{ lang }}</p>
-    <img class="md:hidden lg:hidden" height="18px" width="18px" src="/assets/icons/burgerMenu.svg" alt="A hamburger menu icons" />
-    @if (isOpen == true) {
-        <nav class="flex">
-          <a class="hidden text-lighttext" routerLink="/">Home</a>
+     @if (isOpen == true) {
+        <main class="w-full h-full flex-col items-center justify-center p-4">
+            <div class="w-full flex justify-between items-center">
+          <p tabindex="0" class="text-white font-roboto pt-4">{{ lang }}</p>
+                 <button aria-labelledby="Click here to close the mobile navigation" (click)="toggleMenu()">
+                  <img height="18px" width="18px" src="/assets/icons/close.svg" alt="A close icon" />
+        </button>
+        </div>
+
+
+        <nav class="flex flex-col h-screen items-center justify-center  gap-8">
+          <a class="text-white font-roboto text-lg" (click)="toggleMenu()" routerLink="/">Home</a>
+                <a aria-labelledby="A link to thibault beaumont portfolio" class="text-white font-roboto text-lg" href="https://thibaultbeaumont.netlify.app/">Portfolio</a>
+
         </nav>
+        </main>
       }
-    <nav class="hidden  md:flex md:gap-x-10 lg:flex lg:gap-x-10 md:block lg:block">
-      <a aria-labelledby="A link to the home page" class="text-white font-roboto hover:text-primary" href="/">Home</a>
-      <a aria-labelledby="A link to thibault beaumont portfolio" class="text-white font-roboto hover:text-primary" href="https://thibaultbeaumont.netlify.app/">Portfolio</a>
-    </nav>
-  </div>
-  <router-outlet />
-    <footer>
-    <p tabindex="0" class="flex gap-2 text-lighttext font-roboto text-sm md:text-base lg:text-base">
-      Made with
-      <img tabindex="0" class="animate-pulse" width="18px" height="18px" src="/assets/icons/heart.svg" alt="pulsing heart icon"/>
-      by Thibault Beaumont
-    </p>
-  </footer>
-  </main>
+      @else {
+        <main class="w-full p-4 h-full flex flex-col items-center justify-between">
+        <div class="w-full flex justify-between items-center lg:p-8">
+          <p tabindex="0" class="text-white pt-4 font-roboto">{{ lang }}</p>
+
+
+            <button aria-labelledby="a button that display the mobile navigation" (click)="toggleMenu()">
+              <img class="md:hidden lg:hidden" height="18px" width="18px" src="/assets/icons/burgerMenu.svg" alt="A hamburger menu icon" />
+
+              </button>
+
+              <nav class="hidden  md:flex md:gap-x-10 lg:flex lg:gap-x-10 md:block lg:block">
+                <a aria-labelledby="A link to the home page" class="text-white font-roboto hover:text-primary" href="/">Home</a>
+                <a aria-labelledby="A link to thibault beaumont portfolio" class="text-white font-roboto hover:text-primary" href="https://thibaultbeaumont.netlify.app/">Portfolio</a>
+              </nav>
+
+
+        </div>
+        <router-outlet />
+          <footer>
+          <p tabindex="0" class="flex gap-2 text-lighttext font-roboto text-sm md:text-base lg:text-base">
+            Made with
+            <img tabindex="0" class="animate-pulse" width="18px" height="18px" src="/assets/icons/heart.svg" alt="pulsing heart icon"/>
+            by Thibault Beaumont
+          </p>
+        </footer>
+        </main>
+      }
 </template>
 
