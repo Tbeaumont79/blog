@@ -1,14 +1,35 @@
 <script lang="ts">
   import { RouterLink, RouterOutlet } from '@angular/router' with { analog: 'imports' };
-
-  
+  let isOpen = false
+  let lang = "En"
+  function toggleButton() {
+    isOpen = !isOpen;
+  }
 </script>
 
 <template>
-  <nav class="h-12">
-    <a class="hidden text-lighttext" routerLink="/">Home</a>
-  </nav>
-
+  <main class="w-full p-4 h-full flex flex-col items-center justify-between gap-4">
+  <div class="w-full flex justify-between items-center lg:p-8">
+    <p tabindex="0" class="text-white font-roboto">{{ lang }}</p>
+    <img class="md:hidden lg:hidden" height="18px" width="18px" src="/assets/icons/burgerMenu.svg" alt="A hamburger menu icons" />
+    @if (isOpen == true) {
+        <nav class="flex">
+          <a class="hidden text-lighttext" routerLink="/">Home</a>
+        </nav>
+      }
+    <nav class="hidden  md:flex md:gap-x-10 lg:flex lg:gap-x-10 md:block lg:block">
+      <a aria-labelledby="A link to the home page" class="text-white font-roboto hover:text-primary" href="/">Home</a>
+      <a aria-labelledby="A link to thibault beaumont portfolio" class="text-white font-roboto hover:text-primary" href="https://thibaultbeaumont.netlify.app/">Portfolio</a>
+    </nav>
+  </div>
   <router-outlet />
+    <footer>
+    <p tabindex="0" class="flex gap-2 text-lighttext font-roboto text-sm md:text-base lg:text-base">
+      Made with
+      <img tabindex="0" class="animate-pulse" width="18px" height="18px" src="/assets/icons/heart.svg" alt="pulsing heart icon"/>
+      by Thibault Beaumont
+    </p>
+  </footer>
+  </main>
 </template>
 

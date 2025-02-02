@@ -38,6 +38,9 @@
     h1 {
       @apply text-3xl;
     }
+    h2 {
+      @apply text-xl;
+    }
     p {
       @apply text-base text-lighttext leading-7;
     }
