@@ -27,6 +27,8 @@ Make sure to type Yes when he ask for the installation with docker. And we can r
 docker compose up -d
 ```
 
-You will find the container in the docker desktop app, and you can access it with the url `http://localhost:8000/.well-known/mercure`, the page should be blank it means that the container is running.
+You will find the container in the docker desktop app, and you can access it with the url (http://localhost:8000/.well-known/mercure) and if you go to the url, the page should be blank it means that the container is running.
 
 Mercure is now ready to be used.
+
+this blog post don't end here i'm still working on it.
